@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import styled, {createGlobalStyle} from "styled-components";
 import ContactForm from "components/ContactForm";
 import ContactList from "components/ContactLIst";
 import Filter from "components/Filter";
@@ -49,17 +50,41 @@ class App extends Component {
     const filteredContacts = this.filterContacts();
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <>
+      <Global/>
+      <Container>
+        <Title>Phonebook</Title>
         <ContactForm addContact={this.addContact}/>
 
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
         <Filter onChange={this.inputChangeHandler}/>
         <ContactList contacts={filteredContacts} onDelete={this.deleteContact}/> 
-      </div>
-
+      </Container>
+      </>
     )
   }
 }
 
 export default App;
+
+const Global = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
+
+const Container = styled.div`
+  width: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #6B9275;
+`;
+
+const Title = styled.h2`
+  font-size: 30px;
+  font-waight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+`;
