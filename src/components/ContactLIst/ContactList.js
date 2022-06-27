@@ -1,6 +1,6 @@
-import ContactListItem from "components/ContactListItem";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import ContactListItem from "components/ContactListItem";
+import {List} from './ContactList.styled';
 
 const ContactList = ({contacts, onDelete}) => (
     <List>
@@ -15,9 +15,3 @@ ContactList.propTypes = {
 
 export default ContactList;
 
-const List = styled.ul`
-    width: 100%;
-    padding: 15px;
-    list-style: ordered;
-    background: #9A9B9A;
-`;

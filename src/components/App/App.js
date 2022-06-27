@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import styled, {createGlobalStyle} from "styled-components";
 import ContactForm from "components/ContactForm";
 import ContactList from "components/ContactLIst";
 import Filter from "components/Filter";
+import {Container, Title} from './App.styled';
 
 class App extends Component {
   state = {
@@ -51,7 +51,6 @@ class App extends Component {
 
     return (
       <>
-      <Global/>
       <Container>
         <Title>Phonebook</Title>
         <ContactForm addContact={this.addContact}/>
@@ -67,24 +66,3 @@ class App extends Component {
 
 export default App;
 
-const Global = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
-const Container = styled.div`
-  width: 550px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #6B9275;
-`;
-
-const Title = styled.h2`
-  font-size: 30px;
-  font-waight: 700;
-  text-align: center;
-  margin-bottom: 15px;
-`;
